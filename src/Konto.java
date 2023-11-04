@@ -24,4 +24,15 @@ public class Konto
 
         return saldo;
     }
+
+    public int hæv(int i)
+    {
+
+
+        if (i >= 50 ) {
+            saldo = saldo - i;
+        }
+
+        return saldo;
+    }
 }
