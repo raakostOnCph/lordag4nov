@@ -14,4 +14,14 @@ public class Konto
         this.navn = navn;
         this.saldo = saldo;
     }
+
+    public int insæt(int i)
+    {
+
+        if (i >= 0) {
+            saldo = saldo + i;
+        }
+
+        return saldo;
+    }
 }
