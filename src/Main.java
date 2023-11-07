@@ -8,63 +8,24 @@ public class Main
     public static void main(String[] args)
     {
 
-        Konto [] kontos = new Konto[3];
 
-        kontos[0] = new Konto("patrick");
-        kontos[1] = new Konto("nikolaj");
-        kontos[2] = new Konto("steen");
 
-     //   kontos[1] = null;
 
-        System.out.println("gammelt array");
+        Bank bank = new Bank();
 
-        for (int i = 0; i < kontos.length; i++) {
+        bank.opretKonto("patrick", "password");
 
-            System.out.println(kontos[i].navn);
+        bank.logOn("patrick", "password");
+
+        System.out.println(bank.getAktivKonto().navn);
+
+        System.out.println(bank.logOn("simone", "jegtagerendramkl.otte 00"));
+
+        try {
+            System.out.println(bank.getAktivKonto().navn);
+        } catch (Exception e) {
+            System.out.println("du er ikke logget ind");
         }
-
-
-
-
-        ArrayList<Konto> kontoArrayList = new ArrayList<>(Arrays.asList(kontos));
-
-        kontoArrayList.add(new Konto("simone", 117));
-
-      //  kontoArrayList.remove(1);
-
-        System.out.println("arrayliste");
-
-        for (Konto k : kontoArrayList) {
-
-            System.out.println(k.navn);
-        }
-
-
-        Map<String, Konto> kontoMap = new TreeMap<>();
-
-        for (Konto k : kontoArrayList) {
-
-            kontoMap.put(k.navn, k);
-
-        }
-
-        System.out.println("map kun nøglerne");
-
-        for (String s : kontoMap.keySet()) {
-
-            System.out.println(s);
-        }
-
-
-        System.out.println("værdien dvs kontoen ud");
-        for (Konto value : kontoMap.values()) {
-
-            System.out.println(value.navn + " : " + value.saldo);
-
-        }
-
-
-
 
 
     }

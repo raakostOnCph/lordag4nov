@@ -5,40 +5,17 @@ import static org.junit.jupiter.api.Assertions.*;
 class KontoTest
 {
 
-    Konto konto = new Konto("Oliver", 100);
+    Konto konto = new Konto("simone", 139, "hej");
 
     @Test
-    void insert()
+    void skiftkode()
     {
-        assertEquals(100,konto.insæt(0));
-        assertEquals(150,konto.insæt(50));
+        assertEquals(true, konto.skiftkode("hej","sommer", "sommer"));
+        assertEquals(false, konto.skiftkode("hej","vinter", "sommer"));
+        assertEquals(false, konto.skiftkode("klovn","sommer", "sommer"));
+        assertEquals(false, konto.skiftkode("hej","sommer", "vinter"));
+        assertEquals(false, konto.skiftkode("klovn","sommer", "vinter"));
 
-    }
-
-    @Test
-    void insertNegativ()
-    {
-
-        assertEquals(100, konto.insæt(-100));
-
-    }
-
-    @Test
-    void hævPosetivt()
-    {
-        assertEquals(100, konto.hæv(0));
-
-    }
-
-    @Test
-    void transaktionsStørrelseIHav()
-    {
-
-
-        assertEquals(100, konto.hæv(49));
-        assertEquals(50, konto.hæv(50));
-        konto.insæt(50);
-        assertEquals(49, konto.hæv(51));
 
     }
 }
